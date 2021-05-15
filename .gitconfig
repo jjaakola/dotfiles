@@ -1,0 +1,58 @@
+[user]
+    name = Jarkko Jaakola
+    email = 
+    editor = emacs
+[core]
+    excludesfile = ~/.git-excludes
+[color]
+    branch = auto
+    diff = auto
+    grep = auto
+    status = auto
+    interactive = auto
+    ui = auto
+[http]
+    sslVerify = false
+[merge]
+    tool = vimdiff
+[mergetool]
+    tool = vimdiff
+    prompt = false
+[difftool]
+    tool = vimdiff
+    prompt = false
+[alias]
+    l = log --pretty=format:'%C(yellow)%h%Creset - %Cgreen%an%Creset: %s (%C(bold green)%cr%Creset, %cD)%C(red)%d%Creset'
+    ll = log --stat --decorate -M
+    lf = log --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset: %s (%C(bold green)%cr%Creset, %cD)%C(red)%d%Creset' --stat -M
+    lg = log --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset: %s (%C(bold green)%cr%Creset, %cD)%C(red)%d%Creset' --graph
+    lp = log -p -1 -M
+    root = rev-parse --show-toplevel
+    co = checkout
+    ci = commit -v
+    sci = !git-check-is-master-branch && git svn dcommit
+    srb = !git-check-is-master-branch && git svn rebase
+    amend = commit -v --amend
+    mt = mergetool
+    dh = diff HEAD^1 HEAD
+    dc = diff --cached -M
+    s  = status
+    aliases = !git config --list | grep ^alias
+    b = checkout -b
+    rc = rebase --continue
+    lau = !git ls-files -v | grep "^[[:lower:]]"
+    au = update-index --assume-unchanged
+    nau = update-index --no-assume-unchanged
+    # Stash
+    sl = stash list
+    ss = stash show -p
+    sa = !git stash show -p | git apply && git stash drop
+    e1 = !vim $(git status --short | sed -n 's/^[DU]U \\(.*\\)/\\1/p' | head -n1)
+    a1 = !git add $(git status --short | sed -n 's/^[DU]U \\(.*\\)/\\1/p' | head -n1)
+    d1 = !git rm $(git status --short | sed -n 's/^[DU]U \\(.*\\)/\\1/p' | head -n1)
+[sendemail]
+    smtpserver = /usr/bin/msmtp
+[apply]
+    whitespace = warn
+[push]
+    default = tracking
