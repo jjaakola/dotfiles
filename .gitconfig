@@ -1,6 +1,6 @@
 [user]
     name = Jarkko Jaakola
-    email = 
+    email = <jjaakola@users.noreply.github.com>
     editor = emacs
 [core]
     excludesfile = ~/.git-excludes
@@ -56,3 +56,4 @@
     whitespace = warn
 [push]
     default = tracking
+
